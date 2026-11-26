@@ -23,8 +23,6 @@ Perivascular macrophages (PVMs) maintain cerebrovascular and blood–brain barri
 
 ## Repository Structure
 
-The repository is organized sequentially according to the analytical pipeline:
-
 ```text
 Igf1-Regulated-BBB-through-PVMs/
 ├── QC/                          # Quality control & doublet filtering scripts (e.g., doublets.filter.R)
@@ -33,3 +31,37 @@ Igf1-Regulated-BBB-through-PVMs/
 ├── Clustring/                   # Iterative clustering & PVM population marker annotation
 ├── Pseudobulk/                  # Sample-level count aggregation & DESeq2 differential expression
 └── README.md                    # Project documentation
+```
+
+---
+
+## Key Findings
+
+Out of **10,040** tested genes in the PVM-enriched population, **15** were significantly differentially expressed (`adjusted P < 0.05`; **5** upregulated and **10** downregulated in `APOE4`):
+
+| Gene | Direction in APOE4 | $\log_2\text{FC}$ | Adjusted $P$-value | Biological Context |
+| :--- | :--- | :---: | :---: | :--- |
+| ***Igf1*** | Downregulated | $-0.62$ | $0.0042$ | Key PVM-derived trophic factor supporting vascular/BBB homeostasis |
+| ***Lyve1*** | Downregulated | $-0.45$ | $0.019$ | Canonical perivascular macrophage surface marker |
+| ***Fkbp5*** | Upregulated | $+1.94$ | $0.0041$ | Stress-response / glucocorticoid signaling co-chaperone |
+| ***Maf*** | Unchanged | $-0.064$ | $0.699$ | Core PVM transcription factor (*c-Maf*); no detectable mRNA difference |
+
+---
+
+## Conclusions & Future Directions
+
+* **Post-transcriptional or Epigenetic Regulation:** *APOE4* PVM-enriched cells exhibit significant downregulation of *Igf1* and *Lyve1* without a corresponding decrease in *Maf* transcript abundance, pointing toward potential epigenetic or post-transcriptional mechanisms governing *Igf1* suppression.
+* **Next Steps:** Future analyses will investigate chromatin accessibility/epigenetic regulation at the *Igf1* locus and validate these *APOE4*-associated PVM signatures across larger cohorts and neurodegenerative disease contexts.
+
+---
+
+## Tools & Dependencies
+
+* **Language:** R
+* **Core Packages:** `Seurat`, `Harmony`, `DESeq2`, `ggplot2`
+
+---
+
+## Author
+
+* **Mohamed Gamal** — [@mohamedgamal22-bio](https://github.com/mohamedgamal22-bio)
